@@ -1,0 +1,8 @@
+venv/
+.idea/
+__pycache__/
+*.interp
+*.pyc
+*.tokens
+*.out
+*.c

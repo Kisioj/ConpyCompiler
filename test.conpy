@@ -1,0 +1,13 @@
+func x() {
+    print(2 + 2 * 2);
+}
+
+func test(a) {
+    if (a) {
+        print(a);
+    } else {
+        print(2 + 2 * 2);
+    }
+}
+
+test(5);
