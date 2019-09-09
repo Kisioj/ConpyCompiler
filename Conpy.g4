@@ -9,13 +9,17 @@ WHITESPACE: [ \t]+ -> skip;
 NEWLINE: ('\r' '\n'? | '\n') -> skip;
 
 main: (funcDef | funcCall)* EOF;
-funcDef: FUNC funcNameDef '(' paramDef? ')' block;
+funcDef: FUNC funcName=NAME '(' params? ')' block;
+params: NAME (',' NAME)*;
 block: '{' (ifStmt | funcCall)* '}';
-ifStmt: IF '(' expr ')' block (ELSE block)?;
-funcCall: funcNameRef '(' expr? ')' ';';
-expr: expr '*' expr | expr '+' expr | value;
-value: paramRef | INT;
-paramDef: NAME;
+ifStmt: IF '(' expr ')' ifBlock=block (ELSE elseBlock=block)?;
+funcCall: (funcName=NAME) '(' arguments? ')' ';';
+arguments: expr (',' expr)*;
+expr:
+    expr (oper='*') expr #binaryExpr
+    | expr (oper='+') expr #binaryExpr
+    | value #valueExpr
+    ;
+value: paramRef | intLiteral;
 paramRef: NAME;
-funcNameDef: NAME;
-funcNameRef: NAME;
+intLiteral: INT;

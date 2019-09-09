@@ -26,6 +26,15 @@ class ConpyListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ConpyParser#params.
+    def enterParams(self, ctx:ConpyParser.ParamsContext):
+        pass
+
+    # Exit a parse tree produced by ConpyParser#params.
+    def exitParams(self, ctx:ConpyParser.ParamsContext):
+        pass
+
+
     # Enter a parse tree produced by ConpyParser#block.
     def enterBlock(self, ctx:ConpyParser.BlockContext):
         pass
@@ -53,12 +62,30 @@ class ConpyListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ConpyParser#expr.
-    def enterExpr(self, ctx:ConpyParser.ExprContext):
+    # Enter a parse tree produced by ConpyParser#arguments.
+    def enterArguments(self, ctx:ConpyParser.ArgumentsContext):
         pass
 
-    # Exit a parse tree produced by ConpyParser#expr.
-    def exitExpr(self, ctx:ConpyParser.ExprContext):
+    # Exit a parse tree produced by ConpyParser#arguments.
+    def exitArguments(self, ctx:ConpyParser.ArgumentsContext):
+        pass
+
+
+    # Enter a parse tree produced by ConpyParser#valueExpr.
+    def enterValueExpr(self, ctx:ConpyParser.ValueExprContext):
+        pass
+
+    # Exit a parse tree produced by ConpyParser#valueExpr.
+    def exitValueExpr(self, ctx:ConpyParser.ValueExprContext):
+        pass
+
+
+    # Enter a parse tree produced by ConpyParser#binaryExpr.
+    def enterBinaryExpr(self, ctx:ConpyParser.BinaryExprContext):
+        pass
+
+    # Exit a parse tree produced by ConpyParser#binaryExpr.
+    def exitBinaryExpr(self, ctx:ConpyParser.BinaryExprContext):
         pass
 
 
@@ -71,15 +98,6 @@ class ConpyListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ConpyParser#paramDef.
-    def enterParamDef(self, ctx:ConpyParser.ParamDefContext):
-        pass
-
-    # Exit a parse tree produced by ConpyParser#paramDef.
-    def exitParamDef(self, ctx:ConpyParser.ParamDefContext):
-        pass
-
-
     # Enter a parse tree produced by ConpyParser#paramRef.
     def enterParamRef(self, ctx:ConpyParser.ParamRefContext):
         pass
@@ -89,21 +107,12 @@ class ConpyListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ConpyParser#funcNameDef.
-    def enterFuncNameDef(self, ctx:ConpyParser.FuncNameDefContext):
+    # Enter a parse tree produced by ConpyParser#intLiteral.
+    def enterIntLiteral(self, ctx:ConpyParser.IntLiteralContext):
         pass
 
-    # Exit a parse tree produced by ConpyParser#funcNameDef.
-    def exitFuncNameDef(self, ctx:ConpyParser.FuncNameDefContext):
-        pass
-
-
-    # Enter a parse tree produced by ConpyParser#funcNameRef.
-    def enterFuncNameRef(self, ctx:ConpyParser.FuncNameRefContext):
-        pass
-
-    # Exit a parse tree produced by ConpyParser#funcNameRef.
-    def exitFuncNameRef(self, ctx:ConpyParser.FuncNameRefContext):
+    # Exit a parse tree produced by ConpyParser#intLiteral.
+    def exitIntLiteral(self, ctx:ConpyParser.IntLiteralContext):
         pass
 
 

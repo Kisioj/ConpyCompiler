@@ -19,6 +19,11 @@ class ConpyVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ConpyParser#params.
+    def visitParams(self, ctx:ConpyParser.ParamsContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ConpyParser#block.
     def visitBlock(self, ctx:ConpyParser.BlockContext):
         return self.visitChildren(ctx)
@@ -34,8 +39,18 @@ class ConpyVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ConpyParser#expr.
-    def visitExpr(self, ctx:ConpyParser.ExprContext):
+    # Visit a parse tree produced by ConpyParser#arguments.
+    def visitArguments(self, ctx:ConpyParser.ArgumentsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ConpyParser#valueExpr.
+    def visitValueExpr(self, ctx:ConpyParser.ValueExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ConpyParser#binaryExpr.
+    def visitBinaryExpr(self, ctx:ConpyParser.BinaryExprContext):
         return self.visitChildren(ctx)
 
 
@@ -44,23 +59,13 @@ class ConpyVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ConpyParser#paramDef.
-    def visitParamDef(self, ctx:ConpyParser.ParamDefContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by ConpyParser#paramRef.
     def visitParamRef(self, ctx:ConpyParser.ParamRefContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ConpyParser#funcNameDef.
-    def visitFuncNameDef(self, ctx:ConpyParser.FuncNameDefContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ConpyParser#funcNameRef.
-    def visitFuncNameRef(self, ctx:ConpyParser.FuncNameRefContext):
+    # Visit a parse tree produced by ConpyParser#intLiteral.
+    def visitIntLiteral(self, ctx:ConpyParser.IntLiteralContext):
         return self.visitChildren(ctx)
 
 
