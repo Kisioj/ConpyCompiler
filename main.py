@@ -35,7 +35,7 @@ class SemanticAnalysisVisitor(ConpyBaseVisitor):
         self.errors_count += 1
 
     def visitFuncDef(self, ctx):
-        func_name = ctx.NAME().symbol.text
+        func_name = ctx.NAME().getText()
 
         symbol = {
             'name': func_name,
@@ -162,7 +162,7 @@ class IRGenerationVisitor(ConpyBaseVisitor):
         return instructions
 
     def visitFuncCall(self, ctx):
-        func_name = ctx.NAME().symbol.text
+        func_name = ctx.NAME().getText()
         if func_name in EXTERNAL_SYMBOLS:
             symbol = EXTERNAL_SYMBOLS[func_name]
             call_instruction = assembly.CallExternal(symbol['id'])
