@@ -202,7 +202,6 @@ def code_generate(symbols, instructions, start_instruction_index):
     bytecode.append(struct.pack('<i', start_instruction_index))
     bytecode.append(struct.pack('<i', len(symbols)))
     for symbol in symbols.values():
-        bytecode.append(struct.pack('?', symbol['external']))
         bytecode.append(struct.pack('<i', len(symbol['params'])))
         bytecode.append(struct.pack('<i', symbol['address']))
 

@@ -67,6 +67,9 @@ class VM:
             return func_frame.locals[value.index]
         return value
 
+    def read_unsigned_char(self):
+        return struct.unpack('B', self.file.read(1))[0]
+
     def read_int(self):
         return struct.unpack('<i', self.file.read(4))[0]
 
@@ -78,21 +81,15 @@ class VM:
         self.start_instruction_index = self.read_int()
         symbols_count = self.read_int()
         for _ in range(symbols_count):
-            is_external = self.read_bool()
             symbol = {
-                # 'id': self.read_int(),
-                # 'external': self.read_bool(),
                 'params_count': self.read_int(),
                 'address': self.read_int(),
             }
-            if is_external:
-                self.external_function_symbols.append(symbol)
-            else:
-                self.function_symbols.append(symbol)
+            self.function_symbols.append(symbol)
 
         instructions_count = self.read_int()
         for _ in range(instructions_count):
-            opcode = self.read_int()
+            opcode = self.read_unsigned_char()
             instruction_class = OPCODE_2_INSTRUCTION[opcode]
             if issubclass(instruction_class, assembly.ValueInstruction):
                 value = self.read_int()

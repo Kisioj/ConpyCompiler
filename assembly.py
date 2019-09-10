@@ -3,7 +3,7 @@ import struct
 
 class AssemblyInstruction:
     def pack(self):
-        return struct.pack('<i', self.ID)
+        return struct.pack('B', self.ID)
 
 
 class ValueInstruction(AssemblyInstruction):
