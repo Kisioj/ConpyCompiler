@@ -189,17 +189,16 @@ class ConpyParser ( Parser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.funcName = None # Token
 
         def FUNC(self):
             return self.getToken(ConpyParser.FUNC, 0)
 
+        def NAME(self):
+            return self.getToken(ConpyParser.NAME, 0)
+
         def block(self):
             return self.getTypedRuleContext(ConpyParser.BlockContext,0)
 
-
-        def NAME(self):
-            return self.getToken(ConpyParser.NAME, 0)
 
         def params(self):
             return self.getTypedRuleContext(ConpyParser.ParamsContext,0)
@@ -235,7 +234,7 @@ class ConpyParser ( Parser ):
             self.state = 31
             self.match(ConpyParser.FUNC)
             self.state = 32
-            localctx.funcName = self.match(ConpyParser.NAME)
+            self.match(ConpyParser.NAME)
             self.state = 33
             self.match(ConpyParser.T__0)
             self.state = 35
@@ -485,7 +484,6 @@ class ConpyParser ( Parser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.funcName = None # Token
 
         def NAME(self):
             return self.getToken(ConpyParser.NAME, 0)
@@ -522,7 +520,7 @@ class ConpyParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 67
-            localctx.funcName = self.match(ConpyParser.NAME)
+            self.match(ConpyParser.NAME)
             self.state = 68
             self.match(ConpyParser.T__0)
             self.state = 70
